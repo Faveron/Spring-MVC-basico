@@ -24,6 +24,14 @@ public class Professor
 	
 	public Professor() { }
 	
+	public Professor(String nome, BigDecimal salario, StatusProfessor statusProfessor)
+	{
+		this.nome = nome;
+		this.salario = salario;
+		this.statusProfessor = statusProfessor;
+	}
+	
+	
 	public Long getId() 
 	{
         return id;
@@ -38,7 +46,7 @@ public class Professor
     {
         return nome;
     }
-
+    
     public void setNome(String nome) 
     {
         this.nome = nome;
@@ -63,5 +71,4 @@ public class Professor
     {
         this.statusProfessor = statusProfessor;
     }
-
 }
