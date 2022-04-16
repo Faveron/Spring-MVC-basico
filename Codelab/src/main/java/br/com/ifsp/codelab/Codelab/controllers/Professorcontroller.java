@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.ifsp.codelab.Codelab.dto.RequisicaoNovoProfessor;
 import br.com.ifsp.codelab.Codelab.models.Professor;
 import br.com.ifsp.codelab.Codelab.models.StatusProfessor;
 import br.com.ifsp.codelab.Codelab.repositories.ProfessorRepository;
@@ -35,5 +37,14 @@ public class Professorcontroller
 		mav.addObject("statusProfessor", StatusProfessor.values());
 		
 		return mav;
+	}
+	
+	@PostMapping("/professores")
+	public String create(RequisicaoNovoProfessor requisicao)
+	{
+		Professor professor = requisicao.toProfessor();		
+		this.professorRepository.save(professor);
+		
+		return "redirect:/professores";
 	}
 }
