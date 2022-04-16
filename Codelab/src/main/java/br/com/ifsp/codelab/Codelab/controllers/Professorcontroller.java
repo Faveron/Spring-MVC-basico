@@ -33,7 +33,7 @@ public class Professorcontroller
 	
 	
 	@GetMapping("/professores/new")
-	public ModelAndView nnew()
+	public ModelAndView nnew(RequisicaoNovoProfessor requisicao)
 	{
 		ModelAndView mav = new ModelAndView("professores/new");
 		mav.addObject("listaStatusProfessor", StatusProfessor.values());
@@ -42,20 +42,20 @@ public class Professorcontroller
 	}
 	
 	@PostMapping("/professores")
-	public ModelAndView create(@Valid RequisicaoNovoProfessor requisicao, BindingResult bindingResult)
+	public ModelAndView create(@Valid RequisicaoNovoProfessor requisicao, BindingResult bindingResult) 
 	{
-		if(bindingResult.hasErrors())
-		{			
-			ModelAndView mav = new ModelAndView ("professores/new");
-			mav.addObject("listaStatusProfessor", StatusProfessor.values());
-			return mav;
-		}
-		else
-		{
-			Professor professor = requisicao.toProfessor();		
-			this.professorRepository.save(professor);
-			
-			return new ModelAndView ("redirect:/professores");
-		}		
-	}
+        if (bindingResult.hasErrors()) 
+        {
+            ModelAndView mv = new ModelAndView("professores/new");
+            mv.addObject("listaStatusProfessor", StatusProfessor.values());
+            return mv;
+        }
+        else 
+        {
+            Professor professor = requisicao.toProfessor();
+            this.professorRepository.save(professor);
+
+            return new ModelAndView("redirect:/professores/");
+        }
+    }
 }

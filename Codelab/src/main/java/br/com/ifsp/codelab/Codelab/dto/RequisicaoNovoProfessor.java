@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import br.com.ifsp.codelab.Codelab.models.Professor;
 import br.com.ifsp.codelab.Codelab.models.StatusProfessor;
 
-public class RequisicaoNovoProfessor 
+public class RequisicaoNovoProfessor
 {
 	@NotBlank
     @NotNull
