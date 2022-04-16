@@ -1,5 +1,8 @@
 package br.com.ifsp.codelab.Codelab.dto;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 import br.com.ifsp.codelab.Codelab.models.Professor;
@@ -7,9 +10,13 @@ import br.com.ifsp.codelab.Codelab.models.StatusProfessor;
 
 public class RequisicaoNovoProfessor 
 {
-	private String nome;
-	private BigDecimal salario;
-	private StatusProfessor statusProfessor;
+	@NotBlank
+    @NotNull
+    private String nome;
+    @NotNull
+    @DecimalMin("0.0")
+    private BigDecimal salario;
+    private StatusProfessor statusProfessor;
 	
 	
 	
