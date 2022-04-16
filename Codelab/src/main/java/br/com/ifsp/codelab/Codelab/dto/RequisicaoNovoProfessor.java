@@ -57,7 +57,8 @@ public class RequisicaoNovoProfessor
 	}
 		
 	@Override
-    public String toString() {
+    public String toString() 
+	{
         return "RequisicaoNovoProfessor{" +
                "nome='" + nome + '\'' +
                ", salario=" + salario +
